@@ -1,0 +1,55 @@
+[package]
+name = "chainx-btc"
+version = "0.1.0"
+license = "GPL-3.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+description = "Parity bitcoin client."
+
+[dependencies]
+parking_lot = "0.4"
+log = "0.4"
+env_logger = "0.5"
+app_dirs = { git = "https://github.com/paritytech/app-dirs-rs" }
+jsonrpc-http-server = { version = "14.0", git = "https://github.com/paritytech/jsonrpc" }
+libc = "0.2"
+clap = { version = "2", features = ["yaml"] }
+chain = { path = "chain" }
+keys = { path = "keys" }
+message = { path = "message" }
+network = { path = "network" }
+miner = { path = "miner" }
+p2p = { path = "p2p" }
+node = { path = "node" }
+script = { path = "script" }
+storage = { path = "storage" }
+db = { path = "db" }
+verification = { path = "verification" }
+sync = { path = "sync" }
+#import = { path = "import" }
+logs = { path = "logs" }
+rpc = { path = "rpc" }
+primitives = { path = "primitives" }
+tokio = "0.1.15"
+exit-future = "0.1"
+
+[profile.test]
+debug = true
+
+[[bin]]
+path = "chainx_btc/main.rs"
+name = "chainx_btc"
+
+[workspace]
+members = [
+  "bencher",
+  "db",
+  "miner",
+  "chain",
+  "storage",
+  "rpc",
+  "crypto",
+  "primitives",
+  "message",
+  "script",
+  "serialization",
+  "serialization_derive" ]

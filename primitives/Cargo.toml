@@ -1,0 +1,38 @@
+[package]
+name = "primitives"
+version = "0.1.0"
+authors = ["debris <marek.kotewicz@gmail.com> chainpool & <http://chainx.org>"]
+
+[dependencies]
+crunchy = "0.2"
+sr-std = { git = "https://github.com/paritytech/substrate", default-features = false }
+heapsize = { version = "0.4", optional = true }
+rustc-hex = { version = "2.0", default-features = false }
+byteorder = { version = "1", default-features = false }
+void = { version = "1", default-features = false }
+parity-codec = { version = "3.0", default-features = false }
+uint = { version = "0.5", default-features = false }
+
+[dependencies.impl-codec]
+version = "0.4.1"
+optional = true
+default-features = false
+
+[dependencies.parity-scale-codec]
+version = "1.0.6"
+default-features = false
+features = ["derive"]
+
+[features]
+default = ["std"]
+std = [
+    "uint/std",
+    "rustc-hex/std",
+    "sr-std/std",
+    "heapsize",
+    "byteorder/std",
+    "parity-scale-codec/std",
+    "void/std",
+    "impl-codec/std",
+    "parity-codec/std"
+]

@@ -1,0 +1,22 @@
+[package]
+name = "script"
+version = "0.1.0"
+authors = ["debris <marek.kotewicz@gmail.com>"]
+
+[dependencies]
+sr-std = { git = "https://github.com/paritytech/substrate", default-features = false }
+bitcrypto = { path = "../crypto", default-features = false }
+chain = { path = "../chain", default-features = false }
+keys = { path = "../keys", default-features = false }
+primitives = { path = "../primitives", default-features = false }
+serialization = { path = "../serialization", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+    "bitcrypto/std",
+    "chain/std",
+    "keys/std",
+    "primitives/std",
+    "serialization/std",
+]

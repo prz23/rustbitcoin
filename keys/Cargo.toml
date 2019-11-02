@@ -1,0 +1,52 @@
+[package]
+name = "keys"
+version = "0.1.0"
+authors = ["debris <marek.kotewicz@gmail.com>"]
+
+[dependencies]
+sr-std = { git = "https://github.com/paritytech/substrate", default-features = false }
+rand = { version = "0.4", optional = true }
+rustc-hex = { version = "2", optional = true }
+base58 = { version = "0.1", optional = true }
+libsecp256k1 = "0.2.2"
+bitcrypto = { path = "../crypto", default-features = false }
+primitives = { path = "../primitives", default-features = false }
+parity-codec = { version = "3.0", default-features = false }
+#parity-codec-derive = { version = "3.0", default-features = false }
+serde_bytes = { git = "https://github.com/serde-rs/bytes", optional = true }
+serialization = { path = "../serialization", default-features = false }
+serde = { version = "*", optional = true }
+serde_derive = { version = "*", optional = true }
+#codec = { package = "parity-scale-codec", version = "1.0.6", default-features = false, features = ["derive"] }
+
+[dependencies.impl-codec]
+version = "0.4.1"
+optional = true
+default-features = false
+
+[dependencies.parity-scale-codec]
+version = "1.0.6"
+default-features = false
+features = ["derive"]
+
+[features]
+default = ["std"]
+std = [
+    "sr-std/std",
+    "rand",
+    "rustc-hex",
+    "base58",
+    "bitcrypto/std",
+   # "parity-codec/std",
+   # "parity-codec-derive/std",
+
+    "primitives/std",
+    "serialization/std",
+    "serde_bytes",
+    "serde_derive",
+    "serde",
+    # "codec/std",
+    "impl-codec/std",
+    "parity-codec/std",
+    "parity-scale-codec/std",
+]
