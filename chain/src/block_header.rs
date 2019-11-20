@@ -150,7 +150,21 @@ mod tests {
 
 		assert_eq!(stream.out(), expected);
 	}
-
+   use hash::H256;
+    #[test]
+    fn te(){
+        let head = BlockHeader {
+            version: 536879104,
+            previous_header_hash: H256::from_reversed_str("0000000000000000000963b66ed16254f232a2f5927464282df42a9b9c0d3c04"),
+            merkle_root_hash: H256::from_reversed_str("c4b8bf4a0b1124c4de4ab3afc7827c200b82b8a42c6b2cc85ee80d7680b7a653"),
+            time: 1573895875,
+            bits: 387326161.into(),
+            nonce: 4252267645,
+        };
+        println!("bits is {:?}",head.bits);
+        let hash = head.hash();
+        println!("hash is {:?}",hash);
+    }
 	#[test]
 	fn test_block_header_reader() {
 		let buffer = vec![
